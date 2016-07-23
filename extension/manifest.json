@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+
+  "name": "Talky.io Additions",
+  "description": "Additional features for talky.io video chat.",
+  "version": "0.1",
+
+  "content_scripts": [{
+    "matches": ["http://talky.io/*", "https://talky.io/*"],
+    "js": ["index.js"],
+    "run_at": "document_start"
+  }]
+}
