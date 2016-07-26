@@ -2,6 +2,10 @@
   var scaleX = 1;
   var scaleY = 1;
 
+  var videoChatHasStarted = function() {
+    return document.querySelectorAll('video').length > 1;
+  };
+
   window.addEventListener('DOMContentLoaded', function(event) {
     var head = document.getElementsByTagName('head')[0];
     var style = document.createElement('style');
@@ -45,12 +49,14 @@
     setStyle();
 
     window.addEventListener('keydown', function(event) {
-      if (event.keyCode === 37 || event.keyCode === 39) {
-        scaleX *= -1;
-      }
+      if (videoChatHasStarted()) {
+        if (event.keyCode === 37 || event.keyCode === 39) {
+          scaleX *= -1;
+        }
 
-      if (event.keyCode === 38 || event.keyCode === 40) {
-        scaleY *= -1;
+        if (event.keyCode === 38 || event.keyCode === 40) {
+          scaleY *= -1;
+        }
       }
 
       setStyle();
